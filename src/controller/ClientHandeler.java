@@ -1,9 +1,6 @@
 package controller;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 
@@ -20,6 +17,7 @@ public class ClientHandeler extends Thread{
         try {
             this.socket = socket;
             this.clientHandlers = clientHandelers;
+            this.bufferedReader= new BufferedReader(new InputStreamReader(socket.getInputStream()));
             this.printWriter = new PrintWriter(socket.getOutputStream(), true);
         } catch (IOException e) {
             e.printStackTrace();

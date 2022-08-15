@@ -15,6 +15,7 @@ public class Server {
         while (true) {
             System.out.println("Waiting for Client.....");
             accept = serverSocket.accept();
+            System.out.println("client....");
 
             ClientHandeler clientHandeler = new ClientHandeler(accept,clientHandelers);
             clientHandelers.add(clientHandeler);
