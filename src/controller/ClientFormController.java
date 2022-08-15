@@ -13,6 +13,12 @@ public class ClientFormController extends Thread{
     public Label lblUserName;
     public ImageView camera;
 
+    public void initialize(){
+        String userName = LoginFormController.userName;
+        lblUserName.setText(userName);
+
+    }
+
     public void sendOnAction(ActionEvent actionEvent) {
     }
 
