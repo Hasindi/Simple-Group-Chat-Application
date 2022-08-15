@@ -3,6 +3,7 @@ package controller;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -56,6 +57,12 @@ public class ClientFormController extends Thread {
     }
 
     public void SendImageClickOnAction(MouseEvent mouseEvent) {
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        chooser = new FileChooser();
+        chooser.setTitle("Open Image");
+        this.path = chooser.showOpenDialog(stage);
+        printWriter.println(lblUserName.getText() + " " + "img" + path.getPath());
+        printWriter.flush();
     }
 
     public void run() {
