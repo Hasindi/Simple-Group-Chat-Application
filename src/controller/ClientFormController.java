@@ -7,7 +7,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
-public class ClientFormController {
+public class ClientFormController extends Thread{
     public TextField txtTypemsg;
     public VBox vBox;
     public Label lblUserName;
