@@ -24,5 +24,24 @@ public class ClientHandeler extends Thread{
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+
+    public void run() {
+        try{
+            String massage;
+            while ((massage = bufferedReader.readLine()) != null) {
+                if(massage.equalsIgnoreCase("exit")) {
+                    break;
+                }
+
+                for(ClientHandeler c : clientHandlers) {
+                    c.printWriter.println(massage);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }
