@@ -43,5 +43,15 @@ public class ClientHandeler extends Thread{
             e.printStackTrace();
         }
 
+        finally {
+            try {
+                bufferedReader.close();
+                printWriter.close();
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 }
