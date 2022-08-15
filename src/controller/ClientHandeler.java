@@ -2,6 +2,7 @@ package controller;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -14,6 +15,14 @@ public class ClientHandeler extends Thread{
     private String clientUsername;
     private PrintWriter printWriter;
 
-    public ClientHandeler(Socket accept, ArrayList<ClientHandeler> clientHandelers) {
+    public ClientHandeler(Socket socket, ArrayList<ClientHandeler> clientHandelers) {
+
+        try {
+            this.socket = socket;
+            this.clientHandlers = clientHandelers;
+            this.printWriter = new PrintWriter(socket.getOutputStream(), true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
